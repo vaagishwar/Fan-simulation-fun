@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictor</title>
+  <style>
+    
+    body {
+        margin: 0;
+        height: 100vh;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .back{
+      background-color: #000000;
+      transition: .7s;
+    }
+    img{
+    animation-name: fan;
+    animation-iteration-count:infinite;
+    
+    animation-fill-mode: forwards; 
+
+}
+@keyframes fan {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+.run{
+        animation-duration:1s;
+        animation-timing-function: linear;
+}
+.run:hover{
+        animation-duration:.4s;
+        animation-timing-function: linear;
+}
+
+  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+ <img id="img" src="fan1.png" alt="fan" width="250px" height="250px" >
+  <!-- <button id="switch">Turn On</button> -->
+   <div id="some">
+    <img id="switchsome" src="off.png" alt="" width="50px">
+   </div>
+   <div id="lsome">
+    <img id="lswitchsome" src="on.png" alt="" width="50px">
+   </div>
+   <script>// let btn =document.getElementById('switch')
+let img =document.getElementById('img')
+
+let state = true
+
+let div = document.getElementById('some')
+let btn = document.getElementById('switchsome')
+div.addEventListener('click', ()=> {
+    
+    if(!state){
+        div.innerHTML = `<img id="switchsome" src="off.png" alt="" width="50px">`
+        state = true
+        // console.log(state)
+    }else{
+        div.innerHTML = `<img id="switchsome" src="on.png" alt="" width="50px">`
+        state = false
+        // console.log(state)
+    }
+    img.classList.toggle('run')
+
+})
+
+let istate = true
+let idiv = document.getElementById('lsome')
+let lsom = document.getElementById('lswitchsome')
+idiv.addEventListener('click',()=>
+    {
+        if(!istate){
+        idiv.innerHTML = `<img id="switchsome" src="on.png" alt="" width="50px">`
+        istate = true
+        console.log(istate)
+    }else{
+        idiv.innerHTML = `<img id="switchsome" src="off.png" alt="" width="50px">`
+        istate = false
+        console.log(istate)
+    }
+    document.body.classList.toggle('back')
+})</script>
+</body>
+</html>
+</html>
